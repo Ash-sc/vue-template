@@ -15,14 +15,13 @@ const router = new VueRouter({
   routes: routerList
 })
 
-// router.beforeEach((to, from, next) => {
-//   const notLogin = isEmpty(JSON.parse(localStorage.accountInfo || '{}'))
-//   if (to.path !== '/login' && notLogin) {
-//     router.push('/login')
-//     return
-//   }
-//   next()
-// })
+router.beforeEach((to, from, next) => {
+  if (to.meta.auth) { // todo: 判断是否有路由权限
+    next()
+  } else {
+    next()
+  }
+})
 
 // router.map(Object.values(routesMap))
 

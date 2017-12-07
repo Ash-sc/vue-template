@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '@/routes/'
 
 const rootPath = '/api' // 后端 API 根路径
 
@@ -20,36 +21,21 @@ const xhr = ({ method = 'get', url, body = null }) => {
       url: reqPath,
       data: body
     }).then(res => {
-      const { data } = res
-      if (!data.success) {
-        return reject(data)
+      const data = res.data
+      if (data.result === 3) {
+        return router.push({ name: 'login' })
+      } else if (data.result) {
+        const errorInfo = data.errorInfo || '处理错误'
+        return reject(errorInfo)
       }
-      resolve(data.data || {})
-    }).catch(err => {
-      console.log('request error: %s', err)
-      reject('req error')
+      resolve(data || {})
+    }).catch(() => {
+      // console.error('request error: %s', err)
+      reject('请求失败')
     })
   })
 
   return promise
-
-  // const defer = $.Deferred()
-
-  // axios({
-  //   method: method,
-  //   url: rootPath + url + (method === 'get' ? queryString(body) : ''),
-  //   data: body
-  // }).then(res => {
-  //   const { status, data } = res
-  //   if (status !== 200) {
-  //     return defer.reject(data)
-  //   }
-  //   defer.resolve(data.data)
-  // }).catch(err => {
-  //   console.log(err, 2)
-  // })
-
-  // return defer.promise()
 }
 
 export default xhr

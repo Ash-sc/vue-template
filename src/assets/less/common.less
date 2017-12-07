@@ -1,0 +1,87 @@
+/* 公共样式  */
+body {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+
+body, div, h1, h2, h3, h4, p, ul, ol, form, dl, dt, dd {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 全局通用的 router-view 过渡效果 */
+.fade-transition {
+  transition: opacity .1s ease;
+}
+
+.fade-enter, .fade-leave {
+  opacity: 0;
+}
+
+
+/* 单行省略 */
+.txt-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+/* 不可选中 */
+.unselected {
+  user-select: none;
+}
+
+/* 文字对齐 */
+.tl-l {
+  text-align: left!important;
+}
+
+.tl-r {
+  text-align: right!important;
+}
+
+.tl-c {
+  text-align: center!important;
+}
+
+.clear {
+  zoom: 1;
+}
+
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none!important;
+}

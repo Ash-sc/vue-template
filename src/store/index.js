@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import notification from './modules/notification'
-import qaManagement from './modules/qaManagement'
+import account from './modules/account'
 
 Vue.use(Vuex)
 
@@ -15,8 +14,7 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    notification,
-    qaManagement
+    account
   },
   strict: debug
 })

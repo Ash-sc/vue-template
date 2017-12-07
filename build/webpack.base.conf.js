@@ -44,14 +44,10 @@ module.exports = {
       loader: 'html'
     }, {
       test: /\.(png|jpe?g|gif)$/,
-      loader: 'url',
-      query: {
-        limit: 10240, // 10KB 以下使用 base64
-        name: 'img/[name]-[hash:6].[ext]'
-      }
+      loader: 'file-loader?name=images/[name].[ext]'
     }, {
       test: /\.(woff|woff2|eot|ttf|svg)(\?\S*)?$/,
-      loader: 'url-loader?limit=10240&name=fonts/[name]-[hash:6].[ext]'
+      loader: 'url?limit=100000&name=[name].[ext]'
     }].concat(styleRules.basic)
   },
   vue: {

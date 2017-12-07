@@ -11,11 +11,8 @@ var compiler = webpack(config);
 // 提供静态资源服务
 app.use('/static', express.static(PATHS.STATIC));
 
-// node server
-// require(PATHS.SERVER.join('node-app')).listen(PORTS.NODE_SERVER);
-
 app.use('/api', proxy({
-  target: 'http://127.0.0.1:' + PORTS.NODE_SERVER,
+  target: PORTS.SERVER_URL,
   changeOrigin: true,
   pathRewrite: {
     // 重写 URL：[Dev Server]/api/xxx <=> [Node Server]/xxx

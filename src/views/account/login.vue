@@ -1,10 +1,9 @@
 <template>
-  <div class="main-section">
-    main page！
+  <div class="login-content">
+    login page！
   </div>
 </template>
 <script>
-
 export default {
 }
 </script>
